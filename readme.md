@@ -4,7 +4,7 @@ Online store with admin panel.
 
 ## Database
 
-- [ ] user
+- [ ] user_profile
   - [ ] id
   - [ ] account_type
   - [ ] role
@@ -42,6 +42,7 @@ Online store with admin panel.
   - [ ] category_parent_id (1:n -> category)
 - [ ] trainers_services
   - [ ] id
+  - [ ] description
   - [ ] trainers (n:m -> user)
   - [ ] services (n:m -> product)
 - [ ] order
@@ -55,7 +56,7 @@ Online store with admin panel.
 - [ ] orders_products
   - [ ] id
   - [ ] orders (n:m -> order)
-  - [ ] products (n:m -> product)
+  - [ ] product_id (1:n -> product)
   - [ ] quantity
   - [ ] price_per_item
 - [ ] producer
