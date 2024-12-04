@@ -62,9 +62,15 @@ Online store with admin panel.
 - [ ] producer
   - [ ] id
   - [ ] producer_name
-- [ ] review
+- [ ] product_review
   - [ ] id
   - [ ] product_id (1:n -> product)
+  - [ ] reviewer_id (1:n -> user)
+  - [ ] rating
+  - [ ] comment
+  - [ ] review_creation_datetime
+- [ ] trainer_review
+  - [ ] id
   - [ ] trainer_id (1:n -> user)
   - [ ] reviewer_id (1:n -> user)
   - [ ] rating
