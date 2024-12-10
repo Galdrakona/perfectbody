@@ -1,14 +1,24 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #bdbdbd;
+    background-color: rgba(243, 203, 154, 0.9);
+    background-image:url("/static/images/mw_background.jpg");
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
     color: #212529;
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
+.body-image{
+    background-image:url("images/mw_background.jpg");
 
+
+}
 .navbar {
-    background-color: #3788ff;
+    background-color: #9c8571;
     color: white;
     padding: 0.5rem 1rem;
     display: flex;
@@ -31,38 +41,49 @@ body {
 }
 
 .navbar-brand:hover {
-    color: #0066ff;
+    color: #eca727;
 }
 
 .navbar-links {
     display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
     gap: 1rem;
 }
 
 .nav-link {
-    color: #000000;
+    color: #ffffff;
     text-decoration: none;
+    text-align: center;
+    display: inline-block;
     font-size: 1rem;
+    border: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .nav-link:hover {
-    background-color: #609fff;
+    background-color: #d1ba5e;
 }
 
-.nav-link.active {
-    background-color: #0065ff;
-    color: #ffffff;
+.nav-link:active {
+    background-color: #d15e7d;
+
     font-weight: bold;
 }
 
 /* === Footer === */
 .footer {
-    background-color: #3788ff;
+    background-color: #9c8571;
     color: white;
     text-align: center;
     padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     font-size: 0.9rem;
     margin-top: 2rem;
 }
