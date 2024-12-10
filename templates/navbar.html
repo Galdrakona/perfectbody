@@ -1,8 +1,12 @@
 <nav class="navbar">
+<a class="navbar-brand" href="/"><img src="/static/images/PerfectBody_logo_b.png" alt="PerfectBody"></a>
+
+
     <div class="navbar-container">
         <a class="navbar-brand" href="/">PerfectBody</a>
-
+<!--
         <div class="navbar-links">
+            <ul class="menu"> {% for category in categories %} <li>
             <a class="nav-link active" href="/">Domů</a>
             <a class="nav-link" href="/products/">Produkty</a>
             <a class="nav-link" href="/services/">Služby</a>
@@ -16,4 +20,34 @@
             {% endif %}
         </div>
     </div>
+-->
+<ul class="menu">
+    {% for category in categories %}
+        <li>
+            <a href="#">{{ category.name }}</a>
+            <ul class="submenu">
+                {% for subcategory in category.subcategories.all %}
+                    <li>
+                        <a href="#">{{ subcategory.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+    </div>
 </nav>
+
+{#% url 'add_to_cart' product.id %#}
+
+
+
+
+
+
+
+
+
+
+
+
