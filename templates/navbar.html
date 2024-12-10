@@ -1,19 +1,48 @@
+<a class="navbar-brand" href="/"><img src="/static/images/PerfectBody_logo_b.png" alt="PerfectBody"></a>
 <nav class="navbar">
-    <div class="navbar-container">
-        <a class="navbar-brand" href="/">PerfectBody</a>
+<!--
+    <div class="navbar-container">-->
 
-        <div class="navbar-links">
-            <a class="nav-link active" href="/">Domů</a>
-            <a class="nav-link" href="/products/">Produkty</a>
-            <a class="nav-link" href="/services/">Služby</a>
-            <a class="nav-link" href="/trainers/">Trenéři</a>
+<div class="navbar-links">
+    <ul class="menu"> {% for category in categories %} <li>
+        <a href="#">{{ category.name }}</a>
+        <ul class="submenu"> {% for subcategory in category.subcategories.all %}
+            <li><a href="#">{{ subcategory.name }}</a></li>
+        {% endfor %}
+        </ul>
+    </li> {% endfor %}
+    </ul>
+</div>
+</nav>
+
+
+        <ul>
+            <li >
+                <a href="/" class="nav-link" ><span>Domů</span>
+                </a>
+            </li>
+            <li class="level0 nav-1 category-item first level-top parent">
+                <a href="/products/" class="nav-link" ><span>Produkty</span>
+                </a>
+                <em>jkgkjgk</em>
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+            <li><button class="nav-link" href="/services/">Služby</button></li>
+            <li><button class="nav-link" href="/trainers/">Trenéři</button></li>
             {% if user.is_authenticated %}
                 <span class="nav-link">{{ user.username }}</span>
-                <a class="nav-link" href="{% url 'logout' %}">Odhlásit se</a>
+                <li><button class="nav-link" href="{% url 'logout' %}">Odhlásit se</button></li>
             {% else %}
-                <a class="nav-link" href="/login/">Přihlásit se</a>
-                <a class="nav-link" href="/register/">Registrovat</a>
+                <li><button class="nav-link" href="/login/">Přihlásit se</button></li>
+                <li><button class="nav-link" href="/register/">Registrovat</button></li>
             {% endif %}
-        </div>
-    </div>
-</nav>
+            </ul>
+
+ <!--</div> -->
+
+
+
+
+
