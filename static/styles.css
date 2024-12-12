@@ -90,11 +90,14 @@ body {
 
 
 .jumbotron {
+    width: 75%;
+    float: right;
+    order: 2;
     padding: 2rem;
     background-color: #ffffff;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    text-align: left;
     margin-bottom: 2rem;
 }
 
@@ -109,7 +112,17 @@ body {
     color: #6c757d;
 }
 
+.page-main {
+    box-sizing: border-box;
+    margin: auto;
+    max-width: 1440px;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-grow: 1;
+    position: relative;
+    display: block;
 
+}
 .container {
     width: 90%;
     max-width: 1200px;
@@ -117,6 +130,17 @@ body {
 }
 
 /* styles menu css */
+
+@media (min-width: 768px), print {
+.sidebar-navigation {
+    display: block;
+    float: left;
+    background-color: #ececec;
+    padding: 12px;
+}
+}
+
+
 .menu {
     list-style-type: none;
     padding: 0;
