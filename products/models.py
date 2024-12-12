@@ -6,6 +6,7 @@ from accounts.models import UserProfile
 class Category(Model):
     category_name = CharField(max_length=50, null=False, blank=False, unique=True)
     category_description = TextField(null=True, blank=True)
+    # category_view = URLField(null=True, blank=True)
     category_parent = ForeignKey('self', on_delete=SET_NULL, null=True, blank=True, related_name='subcategories')
 
     class Meta:
@@ -73,5 +74,5 @@ class ProductReview(Model):
         return (f"ProductReview(product={self.product}, reviewer={self.reviewer}, "
                 f"rating={self.rating}, comment={self.comment})")
 
-    # def __str__(self):
-    #     return f"Review for {self.product.product_name} by {self.reviewer.UserProfile.login}"
+    def __str__(self):
+        return f"Review for {self.product.product_name} by {self.reviewer.username}"

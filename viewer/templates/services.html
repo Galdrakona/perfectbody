@@ -2,6 +2,15 @@
 
 {% block content %}
 <h1>Naše služby trenérů</h1>
-<p>Zde bude nabídka služeb.</p>
-
+<ul>
+    {% for service in services %}
+        <li>
+            <h2>{{ service.product_name }}</h2> - {{ service.price }} Kč
+            <p>{{ service.product_description }}</p>
+            <a href="{% url 'add_to_cart' service.id %}">➕ Přidat do košíku</a>
+        </li>
+    {% empty %}
+        <li>Žádné služby k dispozici.</li>
+    {% endfor %}
+</ul>
 {% endblock %}
