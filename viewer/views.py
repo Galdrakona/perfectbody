@@ -13,3 +13,7 @@ def services(request):
 def trainers(request):
     return render(request, 'trainers.html')
 
+def menu_view(request):
+    categories = Category.objects.prefetch_related('subcategories').all()
+    return render(request, 'base.html', {'categories': categories})
+
