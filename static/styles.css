@@ -8,8 +8,7 @@ body {
 }
 
 .navbar {
-    background-color: #3788ff;
-    color: white;
+    color: #1e1c1c;
     padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
@@ -25,13 +24,11 @@ body {
 }
 
 .navbar-brand {
-    font-size: 1.5rem;
-    color: #000000;
-    text-decoration: none;
+
 }
 
 .navbar-brand:hover {
-    color: #0066ff;
+
 }
 
 .navbar-links {
