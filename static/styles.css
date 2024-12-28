@@ -14,66 +14,8 @@ body {
 }
 .body-image{
     background-image:url("images/mw_background.jpg");
-
-
-}
-.navbar {
-    background-color: #9c8571;
-    color: white;
-    padding: 0.5rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
 }
 
-.navbar-container {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar-brand {
-    font-size: 1.5rem;
-    color: #000000;
-    text-decoration: none;
-}
-
-.navbar-brand:hover {
-    color: #eca727;
-}
-
-.navbar-links {
-    display: flex;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    gap: 1rem;
-}
-
-.nav-link {
-    color: #ffffff;
-    text-decoration: none;
-    text-align: center;
-    display: inline-block;
-    font-size: 1rem;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.nav-link:hover {
-    background-color: #d1ba5e;
-}
-
-.nav-link:active {
-    background-color: #d15e7d;
-
-    font-weight: bold;
-}
 
 /* === Footer === */
 .footer {
@@ -131,55 +73,35 @@ body {
 
 /* styles menu css */
 
-@media (min-width: 768px), print {
-.sidebar-navigation {
-    display: block;
-    float: left;
-    background-color: #ececec;
-    padding: 12px;
-}
-}
+
+
 
 
 .menu {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    background-color: #333;
+
 }
 
 .menu > li {
-    display: inline-block;
-    position: relative;
+
 }
 
 .menu > li > a {
-    display: block;
-    padding: 10px 20px;
-    color: white;
-    text-decoration: none;
+
 }
 .menu > li > a:hover {
-    background-color: #111;
+
 }
 
 .submenu {
-    display: none;
-    position: absolute; top: 100%; left: 0;
-    list-style-type: none;
-    padding: 0; margin: 0;
-    background-color: #333;
+
 }
-.submenu > li > a { display: block;
-    padding: 10px 20px;
-    color: white;
-    text-decoration: none;
+.submenu > li > a {
 }
 
 .submenu > li > a:hover {
-    background-color: #111;
+
 }
 
 .menu > li:hover .submenu {
-    display: block;
+
 }

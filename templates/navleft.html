@@ -1,0 +1,41 @@
+  <a class="nav-link navbar-brand" href="/"><img src="/static/images/PerfectBody_logo_b.png" alt="PerfectBody"></a>
+
+
+<nav class="container-fluid">
+    <ul class="nav nav-tabs>
+        <li class="nav-item">
+            <a class="nav-link active">Domů</a>
+        </li>
+        <li class="nav-item">
+              <a class="nav-link select2-dropdown--above"  data-bs-toggle="dropdown" href="/products/">Produkty</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                    <a class="select2-dropdown"> jídlo</a>
+            {% if user.is_authenticated %}
+            <span class="nav-link">{{ user.username }}</span>
+            <li class="nav-item" class="nav-link" href="{% url 'logout' %}">Odhlásit se </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="/login/">Přihlásit se</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register/">Registrovat</a>
+            </li>
+        {% endif %}           </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/services/">Služby</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/trainers/">Trenéři</a>
+        </li>
+
+    </ul>
+</nav>
+
+
+
+
+
+

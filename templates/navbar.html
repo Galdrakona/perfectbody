@@ -1,46 +1,46 @@
-<a class="navbar-brand" href="/"><img src="/static/images/PerfectBody_logo_b.png" alt="PerfectBody"></a>
-<nav class="navbar">
-<!--
-    <div class="navbar-container">-->
+  <a class="nav-link navbar-brand" href="/"><img src="/static/images/PerfectBody_logo_b.png" alt="PerfectBody"></a>
 
-<div class="navbar-links">
-    <ul class="menu"> {% for category in categories %} <li>
-        <a href="#">{{ category.name }}</a>
-        <ul class="submenu"> {% for subcategory in category.subcategories.all %}
-            <li><a href="#">{{ subcategory.name }}</a></li>
-        {% endfor %}
-        </ul>
-    </li> {% endfor %}
+
+<nav class="container-fluid">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+              <a class="nav-link">Domů</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link select2-dropdown--above"  data-bs-toggle="dropdown" href="/products/">
+                  Produkty
+            </a>
+             <ul class="dropdown-menu">
+                 <li><a class="dropdown-item" href="#">Link 1</a></li>
+                 <li><a class="dropdown-item" href="#">Link 2</a></li>
+                 <li><a class="dropdown-item" href="#">Link 3</a></li>
+             </ul>
+        </li>
+       <li class="nav-item">
+           <a class="nav-link" href="/services/">Služby</a>
+           <ul class="dropdown-menu">
+                 <li><a class="dropdown-item" href="#">Link 1</a></li>
+                 <li><a class="dropdown-item" href="#">Link 2</a></li>
+                 <li><a class="dropdown-item" href="#">Link 3</a></li>
+           </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/trainers/">Trenéři</a>
+        </li>
+        {% if user.is_authenticated %}
+            <span class="nav-link">{{ user.username }}</span>
+            <li class="nav-item" class="nav-link" href="{% url 'logout' %}">Odhlásit se </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="/login/">Přihlásit se</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register/">Registrovat</a>
+            </li>
+        {% endif %}
     </ul>
-</div>
 </nav>
 
-
-        <ul>
-            <li >
-                <a href="/" class="nav-link" ><span>Domů</span>
-                </a>
-            </li>
-            <li class="level0 nav-1 category-item first level-top parent">
-                <a href="/products/" class="nav-link" ><span>Produkty</span>
-                </a>
-                <em>jkgkjgk</em>
-                <ul>
-                    <li></li>
-                </ul>
-            </li>
-            <li><button class="nav-link" href="/services/">Služby</button></li>
-            <li><button class="nav-link" href="/trainers/">Trenéři</button></li>
-            {% if user.is_authenticated %}
-                <span class="nav-link">{{ user.username }}</span>
-                <li><button class="nav-link" href="{% url 'logout' %}">Odhlásit se</button></li>
-            {% else %}
-                <li><button class="nav-link" href="/login/">Přihlásit se</button></li>
-                <li><button class="nav-link" href="/register/">Registrovat</button></li>
-            {% endif %}
-            </ul>
-
- <!--</div> -->
 
 
 
