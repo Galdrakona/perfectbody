@@ -113,6 +113,15 @@ class TrainerRegistrationForm(RegistrationForm):
         label='Popis trenéra'
     )
 
+    def clean_postal_code(self):
+        postal_code = self.cleaned_data.get('postal_code')
+        if postal_code:
+            if ' ' in postal_code:
+                raise ValidationError('PSČ nesmí obsahovat mezery')
+            if not postal_code.isdigit():
+                raise ValidationError('PSČ musí obsahovat pouze číslice')
+        return postal_code
+
     def clean(self):
         cleaned_data = super().clean()
         # Pole, která musí být vždy vyplněna
@@ -135,24 +144,26 @@ class TrainerRegistrationForm(RegistrationForm):
         return cleaned_data
 
     def save(self, commit=True):
-        user = super().save(commit=False)
-        user.account_type = 'registered'
-        if commit:
-            user.save()
-            trainer_group, created = Group.objects.get_or_create(name='trainer')
-            user.groups.add(trainer_group)
+        with transaction.atomic():
+            user = super().save(commit=False)
+            user.account_type = 'registered'
+            if commit:
+                user.save()
 
-            user.profile_description = self.cleaned_data.get('trainer_description')
-            user.save()
+                trainer_group, created = Group.objects.get_or_create(name='trainer')
+                user.groups.add(trainer_group)
 
-            if self.cleaned_data.get('add_address'):
+                user.profile_description = self.cleaned_data.get('trainer_description')
+                user.save()
+
                 Address.objects.create(
                     user=user,
                     first_name=user.first_name,
+                    last_name=user.last_name,
                     street=self.cleaned_data['street'],
                     street_number=self.cleaned_data['street_number'],
                     city=self.cleaned_data['city'],
-                    postal_code=self.cleaned_data['postal_code'],
+                    postal_code=self.cleaned_data['postal_code'].replace(' ', ''),
                     country=self.cleaned_data['country'],
                     email=self.cleaned_data['email'],
                 )
@@ -173,6 +184,15 @@ class UserEditForm(UserChangeForm):
     class Meta:
         model = UserProfile
         fields = ['username', 'first_name', 'last_name', 'email', 'phone', 'avatar', 'preferred_channel']
+        labels = {
+            'username': 'Uživatelské jméno',
+            'first_name': 'Jméno',
+            'last_name': 'Příjmení',
+            'email': 'E-mail',
+            'phone': 'Telefon',
+            'avatar': 'Avatar',
+            'preferred_channel': 'Preferovaný komunikační kanál',
+        }
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
@@ -219,4 +239,17 @@ class PasswordChangeForm(Form):
         self.user.set_password(new_password)
         self.user.save()
 
-
+class AddressForm(ModelForm):
+    class Meta:
+        model = Address
+        fields = ['first_name', 'last_name', 'street', 'street_number', 'city', 'postal_code', 'country', 'email']
+        labels = {
+            'first_name': 'Jméno',
+            'last_name': 'Příjmení',
+            'street': 'Ulice',
+            'street_number': 'Číslo domu',
+            'city': 'Město',
+            'postal_code': 'PSČ',
+            'country': 'Země',
+            'email': 'E-mail',
+        }
