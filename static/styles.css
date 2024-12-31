@@ -12,8 +12,42 @@ body {
     padding: 0;
     line-height: 1.6;
 }
-.body-image{
-    background-image:url("images/mw_background.jpg");
+
+.navbar {
+    color: #1e1c1c;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.navbar-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+
+}
+
+.navbar-brand:hover {
+
+}
+
+.navbar-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: #000000;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
 }
 
 
@@ -32,9 +66,6 @@ body {
 
 
 .jumbotron {
-    width: 75%;
-    float: right;
-    order: 2;
     padding: 2rem;
     background-color: #ffffff;
     border-radius: 0.5rem;
@@ -54,54 +85,9 @@ body {
     color: #6c757d;
 }
 
-.page-main {
-    box-sizing: border-box;
-    margin: auto;
-    max-width: 1440px;
-    padding-left: 20px;
-    padding-right: 20px;
-    flex-grow: 1;
-    position: relative;
-    display: block;
 
-}
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 2rem auto;
-}
-
-/* styles menu css */
-
-
-
-
-
-.menu {
-
-}
-
-.menu > li {
-
-}
-
-.menu > li > a {
-
-}
-.menu > li > a:hover {
-
-}
-
-.submenu {
-
-}
-.submenu > li > a {
-}
-
-.submenu > li > a:hover {
-
-}
-
-.menu > li:hover .submenu {
-
 }
