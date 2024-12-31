@@ -2,11 +2,6 @@
 
 Online store with admin panel.
 
-## Functionalities
-
-- [x] products/services list (products-list)
-- [ ] product/service information (product-detail)
-
 ## Database
 
 - [x] user_profile
@@ -82,5 +77,13 @@ Online store with admin panel.
   - [ ] reviewer_id (1:n -> user)
   - [ ] rating
   - [ ] comment
+  - [ ] review_creation_datetime
+- [ ] trainer_review
+  - [ ] id
+  - [ ] trainer_id (1:n -> user)
+  - [ ] reviewer_id (1:n -> user)
+  - [ ] rating
+  - [ ] comment
+  - [ ] review_creation_datetime
   - [ ] review_creation_datetime
   - [ ] review_update_datetime
