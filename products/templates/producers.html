@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Seznam výrobců</h1>
+
+    <!-- Breadcrumbs navigace -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="display: flex; list-style: none; padding: 0;">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home' %}">Domů</a>
+            </li>
+            <li class="breadcrumb-item" style="margin: 0 5px;">&gt;</li>
+            <li class="breadcrumb-item active" aria-current="page">Seznam výrobců</li>
+        </ol>
+    </nav>
+
+    <!-- Seznam všech výrobců -->
+    <ul>
+        {% for producer in all_producers %}
+            <li>
+                <a href="{% url 'producer' producer.pk %}">{{ producer.producer_name }}</a>
+            </li>
+        {% empty %}
+            <li>Žádní výrobci nejsou k dispozici.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
