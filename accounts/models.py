@@ -81,4 +81,3 @@ class TrainersServices(Model):
 
     def __str__(self):
         return f"{self.trainer.full_name()} - {self.service.product_name} (Approved: {self.is_approved})"
-

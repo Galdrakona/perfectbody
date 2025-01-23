@@ -118,3 +118,4 @@ class TrainerReview(Model):
     def __str__(self):
         reviewer_name = self.reviewer.username if self.reviewer else "Unknown"
         return f"Review for {self.trainer.full_name()} by {reviewer_name}"
+
