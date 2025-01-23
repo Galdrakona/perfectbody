@@ -4,9 +4,6 @@ from django.db.models import Model, CharField, TextField, URLField, ForeignKey, 
 from django.template.defaultfilters import slugify
 
 
-# from accounts.models import UserProfile
-
-
 class Category(Model):
     category_name = CharField(max_length=50, null=False, blank=False, unique=True)
     category_description = TextField(null=True, blank=True)
@@ -52,16 +49,14 @@ class Product(Model):
         ("service", "Service"),
     ]
 
-    product_type = CharField(max_length=12, null=False, blank=False, choices=PRODUCT_TYPES) # max_length == Merchantdise
+    product_type = CharField(max_length=12, null=False, blank=False, choices=PRODUCT_TYPES)
     product_name = CharField(max_length=100, null=False, blank=False)
     product_short_description = TextField(null=False, blank=False)
     product_long_description = TextField(null=False, blank=False)
     product_view = URLField(null=True, blank=True)
     category = ForeignKey(Category, default=0, on_delete=SET_DEFAULT, null=False, blank=False, related_name='categories')
     price = DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
-    # Producer exists only for merchantdise product_type.
     producer = ForeignKey(Producer, default=0, on_delete=SET_DEFAULT, null=True, blank=True, related_name='producers')
-    # A value will always be a number (never NULL).
     stock_availability = PositiveIntegerField(default=0, null=False, blank=True)
 
     class Meta:
@@ -78,7 +73,7 @@ class Product(Model):
 
 
 class ProductReview(Model):
-    product = ForeignKey("products.Product", on_delete=CASCADE, null=False, blank=False, related_name='product_reviews')
+    product = ForeignKey("products.Product", on_delete=CASCADE, related_name='product_reviews')
     reviewer = ForeignKey("accounts.UserProfile", on_delete=SET_NULL, null=True, blank=True, related_name="product_reviews_reviewer")
     rating = IntegerField(null=True, blank=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
     comment = TextField(null=True, blank=True)
@@ -98,9 +93,8 @@ class ProductReview(Model):
         return f"Review for {self.product.product_name} by {reviewer_name}"
 
 
-
 class TrainerReview(Model):
-    trainer = ForeignKey("accounts.UserProfile", on_delete=CASCADE, null=False, blank=False, related_name='trainer_reviews')
+    trainer = ForeignKey("accounts.UserProfile", on_delete=CASCADE, related_name='trainer_reviews')
     reviewer = ForeignKey("accounts.UserProfile", on_delete=SET_NULL, null=True, blank=True, related_name="trainer_reviews_reviewer")
     rating = IntegerField(null=True, blank=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
     comment = TextField(null=True, blank=True)
@@ -118,4 +112,3 @@ class TrainerReview(Model):
     def __str__(self):
         reviewer_name = self.reviewer.username if self.reviewer else "Unknown"
         return f"Review for {self.trainer.full_name()} by {reviewer_name}"
-

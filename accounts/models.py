@@ -5,15 +5,14 @@ from django.db.models import Model, DateTimeField, CharField, URLField, ForeignK
 
 from perfectbody.settings import AUTH_USER_MODEL
 
-# from products.models import Product
 
 class UserProfile(AbstractUser):
     PREFERRED_CHANNEL = [('PHONE', 'Telefón'), ('EMAIL', 'Email'), ('POST', 'Pošta')]
     ACCOUNT_TYPES = [('registered', 'Registrovaný uživatel'), ('guest', 'Neregistrovaný uživatel')]
 
-    avatar = URLField(blank=True, null=True)  # url avataru
-    phone = CharField(max_length=15, blank=True, null=True)  # telefon
-    preferred_channel = CharField(max_length=10, choices=PREFERRED_CHANNEL, default='EMAIL')  # prefer. kom. kanal, vyber z PREFERRED_CHANNEL
+    avatar = URLField(blank=True, null=True)
+    phone = CharField(max_length=15, blank=True, null=True)
+    preferred_channel = CharField(max_length=10, choices=PREFERRED_CHANNEL, default='EMAIL')
     profile_picture = URLField(null=True, blank=True)
     pending_profile_picture = URLField(null=True, blank=True)
     trainer_short_description = TextField(blank=True, null=True)
@@ -21,7 +20,7 @@ class UserProfile(AbstractUser):
     pending_trainer_short_description = TextField(blank=True, null=True)
     pending_trainer_long_description = TextField(blank=True, null=True)
     date_of_birth = DateField(blank=True, null=True)
-    created_at = DateTimeField(auto_now_add=True) # datum vytvoreni uctu
+    created_at = DateTimeField(auto_now_add=True)
     account_type = CharField(max_length=15, choices=ACCOUNT_TYPES, default='registered')
 
     def calculate_average_rating(self):
@@ -45,7 +44,6 @@ class UserProfile(AbstractUser):
 
 
 class Address(Model):
-
     user = ForeignKey(AUTH_USER_MODEL, on_delete=SET_NULL, null=True, blank=True, related_name='addresses')
     first_name = CharField(max_length=255, verbose_name='Jméno')
     last_name = CharField(max_length=255, verbose_name='Příjmení')
