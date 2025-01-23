@@ -67,7 +67,7 @@ class Address(Model):
 
 
 class TrainersServices(Model):
-    trainer = ForeignKey(UserProfile, on_delete=CASCADE, related_name="services")
+    trainer = ForeignKey("accounts.UserProfile", on_delete=CASCADE, related_name="services")
     service = ForeignKey("products.Product", on_delete=CASCADE, related_name="trainers")
     trainers_service_description = TextField(blank=False, null=False)
     # The trainer has to be approved by an employee before including to the trainer list.

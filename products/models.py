@@ -78,7 +78,7 @@ class Product(Model):
 
 
 class ProductReview(Model):
-    product = ForeignKey(Product, on_delete=CASCADE, null=False, blank=False, related_name='product_reviews')
+    product = ForeignKey("accounts.UserProfile", on_delete=CASCADE, null=False, blank=False, related_name='product_reviews')
     reviewer = ForeignKey("accounts.UserProfile", on_delete=SET_NULL, null=True, blank=True, related_name="product_reviews_reviewer")
     rating = IntegerField(null=True, blank=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
     comment = TextField(null=True, blank=True)
