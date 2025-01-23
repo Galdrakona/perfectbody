@@ -67,10 +67,9 @@ class Address(Model):
 
 
 class TrainersServices(Model):
-    trainer = ForeignKey(UserProfile, on_delete=CASCADE, related_name="services")
+    trainer = ForeignKey("accounts.UserProfile", on_delete=CASCADE, related_name="services")
     service = ForeignKey("products.Product", on_delete=CASCADE, related_name="trainers")
     trainers_service_description = TextField(blank=False, null=False)
-    # The trainer has to be approved by an employee before including to the trainer list.
     pending_trainers_service_description = TextField(blank=True, null=True)
     is_approved = BooleanField(default=False)
 
@@ -82,3 +81,4 @@ class TrainersServices(Model):
 
     def __str__(self):
         return f"{self.trainer.full_name()} - {self.service.product_name} (Approved: {self.is_approved})"
+
