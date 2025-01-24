@@ -94,6 +94,9 @@ Online store with admin panel.
   - [ ] review_creation_datetime
   - [ ] review_update_datetime
 
-### Images sources
+## Data sources
+### Photos
 - https://unsplash.com/
 - https://www.freepik.com/
+### Database content and producers logos
+- https://chatgpt.com/
