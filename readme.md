@@ -184,5 +184,5 @@ The PerfectBody project is a modern e-commerce platform focused on fitness and a
 - https://www.freepik.com/
 ### Database content and producers logos
 - https://chatgpt.com/
-### Image storage
+### Images storage
 - https://ibb.co/album/QvjY3B
