@@ -22,7 +22,7 @@ Projekt PerfectBody je moderní e-commerce platforma zaměřená na fitness a zd
   - **Trainer Description Approval:** Any changes to the trainer's short or long description must be approved by an admin.
   - **Trainer Services Approval:** Edits to service descriptions or new service additions await admin approval.
 - **Order History:** Display of past orders overview.
-- 
+
 ### 2. Product and Service Catalog
 - **Display of Main Categories and Subcategories.**
 - **Product Details:** Display of description, price, reviews, and availability.
