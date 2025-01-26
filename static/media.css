@@ -41,8 +41,6 @@
             margin:0 1rem ; /* Mezera mezi položkami */
         }
 
-
-
     #user-menu, #cart-menu .dropdown-menu{
     display: none; /* Skryje dropdown menu */
     }
