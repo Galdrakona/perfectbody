@@ -1,10 +1,91 @@
 # PerfectBody project
 
+## Introduction (EN)
+The PerfectBody project is a modern e-commerce platform focused on fitness and a healthy lifestyle. In addition to selling products, it provides a space for trainers to register, showcase their services, and connect with clients. Trainer registration includes an approval process managed by an administrator, ensuring control over the quality of the offered services. The system features user-friendly functionalities such as advanced filtering, customer registration, dynamic cart management, customer reviews for products and trainers, and a comprehensive admin interface for content and user management.
+
 ## Představení (CZ)
 Projekt PerfectBody je moderní e-commerce platforma zaměřená na fitness a zdravý životní styl. Kromě prodeje zboží, poskytuje prostor pro trenéry. Ti se mohou registrovat, prezentovat své služby a propojit se s klienty. Registrace trenérů je doplněna schvalovacím procesem spravovaným administrátorem, což umožňuje kontrolu nad kvalitou nabízených služeb. Systém zahrnuje uživatelsky přívětivé funkce, jako je pokročilé filtrování, registrace zákazníka, dynamická správa košíku, zákaznické hodnocení zboží a trenérů, a plnohodnotné administrátorské rozhraní pro správu obsahu a uživatelů.
 
-## Introduction (EN)
-The PerfectBody project is a modern e-commerce platform focused on fitness and a healthy lifestyle. In addition to selling products, it provides a space for trainers to register, showcase their services, and connect with clients. Trainer registration includes an approval process managed by an administrator, ensuring control over the quality of the offered services. The system features user-friendly functionalities such as advanced filtering, customer registration, dynamic cart management, customer reviews for products and trainers, and a comprehensive admin interface for content and user management.
+## Functionalities (EN)
+### 1. User Account
+- **User Registration:** Standard user registration, including multi-step registration for trainers.
+- **User Login and Logout.**
+- **Profile Management:**
+  - **Personal Information:** Ability to edit name, addresses, and password.
+  - **Avatar URL:** Each user can add or update the URL of their avatar.
+  - **Additional Images for Trainers:** Trainers can add extra image URLs to their profile, which will be displayed on their detailed page.
+- **Address Auto-fill:** If a user has entered an address before, it will automatically pre-fill for future orders.
+- **Password Change:** Users can change their password using a secure and simple form.
+- **Existence Check** Validation to ensure the username or email already exists in the system.
+- **Password Encryption:** User passwords are secured through hashing.
+- **Trainer Content Approval:**
+  - **Trainer Description Approval:** Any changes to the trainer's short or long description must be approved by an admin.
+  - **Trainer Services Approval:** Edits to service descriptions or new service additions await admin approval.
+- **Order History:** Display of past orders overview.
+- 
+### 2. Product and Service Catalog
+- **Display of Main Categories and Subcategories.**
+- **Product Details:** Display of description, price, reviews, and availability.
+- **Product Filtering and Sorting:** By category, gender (men’s/women’s), and price.
+- **Service Support:** Display of approved trainers for specific services.
+
+### 3. Trainers
+- **Trainer Display:** Trainers are only shown in listings and searches if they have at least one approved service.
+- **Trainer Detail:**
+  - Display of approved services, ratings, and the ability to add a review.
+  - Display of the trainer's avatar and additional uploaded images.
+
+### 4. Dynamic Cart
+- **AJAX Add to Cart:**
+  - After adding a product to the cart, a confirmation message displays that the product has been successfully added.
+  - The cart icon immediately updates the item count.
+  - **Cart Preview:** Hovering over the cart icon shows a dynamic preview with the cart contents, total price, a link to cart details, and options to modify items.
+- **Cart Modification:**
+  - Updating quantities, adding notes to items, and removing items from the cart.
+
+### 5. Orders
+- **Order Creation:** Processing the cart and selecting delivery and billing addresses.
+- **Billing Address Option:** Users can specify a different billing address during checkout.
+- **Address Auto-fill:** If the user has a saved address, it is used as the default for new orders.
+- **Order Summary:** Display of details before confirmation.
+- **Order Confirmation:**
+  - Upon confirmation, products are automatically deducted from stock inventory.
+  - If a product is out of stock or inventory is insufficient, the order is not processed, and the user is notified.
+- **Order Cancellation:**
+  - Users can cancel an order if it has not yet been shipped.
+  - Upon cancellation, products are automatically returned to inventory.
+- **Order History:** Users can view details of past orders.
+
+### 6. Reviews
+- **Ability to add and edit reviews for products, services, and trainers.**
+- **Admin Approval and Deletion of Reviews.**
+
+### 7. Admin Features
+- **Product Management:** Adding, editing, and deleting products.
+- **Category Management:** Creating and deleting empty categories.
+- **User Management:**
+  - **Superadmin:**
+    - Can grant or revoke admin and superadmin rights to other users.
+    - Can edit or delete accounts of other admins and superadmins.
+  - **Admin:**
+    - Cannot edit or delete accounts of other admins or superadmins.
+    - Has rights to manage regular user accounts and trainer accounts.
+- **Trainer Content Approval:**
+  - Approve or reject changes to trainer descriptions and their services.
+
+### 8. Search
+- **Full-text Search:** For products, services, and trainers.
+- **Trainer Condition:** Only trainers with at least one approved service are shown in search results.
+- **Search Without Accents:** Searching works even without diacritics.
+- **AJAX Support:** Fast, real-time search results.
+
+### 9. Weather and Name Days
+- **Display of Current Weather:** Based on the user's city or default cities (Brno, Prague, Ostrava).
+- **Name Day Display:** Information on whose name day it is (based on the Czech calendar).
+
+### 10. Other
+- **Support for Multiple Product Types:** Merchandise and services.
+- **Custom Error Pages:** For errors 400, 403, 404, 408, 429, 500, and 503.
 
 ## Funkcionality (CZ)
 
@@ -87,7 +168,6 @@ The PerfectBody project is a modern e-commerce platform focused on fitness and a
 ### 10. Ostatní
 - **Podpora více typů produktů:** Produkty (merchandise) a služby.
 - **Vlastní chybové stránky:** Pro chyby 400, 403, 404, 408, 429, 500 a 503.
-
 
 ## Database
 
